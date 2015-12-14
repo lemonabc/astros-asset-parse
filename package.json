@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": "lemonabc/astros-asset-parse",
+  "email" : "ilemonabc@qq.com",
+  "author": "lemonabc <ilemonabc@qq.com>",
   "license": "ISC"
 }
