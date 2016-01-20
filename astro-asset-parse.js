@@ -48,6 +48,9 @@ module.exports = new astro.Middleware('*', function(asset, next) {
             info.modType = 'static';
             info.path = nodePath.join(prjCfg.root, 'assets', url)
             info.fileType = nodePath.extname(url);
+            if(info.fileType && info.fileType.charAt(0) == '.'){
+                info.fileType = info.fileType.substr(1)
+            }
         }
 
         for (let p in info) {
