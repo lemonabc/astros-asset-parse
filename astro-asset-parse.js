@@ -20,7 +20,7 @@ module.exports = new astro.Middleware('*', function(asset, next) {
                 fileType: urlInfo[1], //page
                 modType: asset.modNameFull[urlInfo[2]],
                 name: urlInfo[3],
-                extName: urlInfo[4]
+                extname: urlInfo[4]
             };
             if (info.modType) {
                 switch (info.fileType) {
@@ -33,13 +33,11 @@ module.exports = new astro.Middleware('*', function(asset, next) {
                             let _t = info.name.replace(/([^\/,\\]+)\/([^\/,\\]+)$/i, function(a, b, c) {
                                 return b + nodePath.sep + 'img' + nodePath.sep + c
                             });
-                            info.path = nodePath.join(prjCfg[info.modType], _t + '.' + info.extName);
-                        } else {
-                            info.modType = 'img';
-                            info.path = nodePath.join(prjCfg.root, url);
+                            info.filePath = nodePath.join(prjCfg[info.modType], _t + '.' + info.extname);
                         }
                         break;
                     default:
+                        // info.filePath = nodePath.join(prjCfg.root, url);
                 }
             }
         }
